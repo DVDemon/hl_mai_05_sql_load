@@ -1,18 +1,25 @@
 #include <string>
 #include <iostream>
+#include <fstream>
 
 #include <Poco/Data/MySQL/Connector.h>
 #include <Poco/Data/MySQL/MySQLException.h>
 #include <Poco/Data/SessionFactory.h>
 
-auto main(int argc,char *argv[]) -> int
+#include <Poco/JSON/Object.h>
+#include <Poco/JSON/Array.h>
+#include <Poco/JSON/Parser.h>
+#include <Poco/Dynamic/Var.h>
+
+auto main(int argc, char *argv[]) -> int
 {
-    if(argc<2) return 0;
+    if (argc < 2)
+        return 0;
     std::string host(argv[1]);
     std::cout << "connecting to:" << host << std::endl;
     Poco::Data::MySQL::Connector::registerConnector();
     std::cout << "connector registered" << std::endl;
-    
+
     std::string connection_str;
     connection_str = "host=";
     connection_str += host;
@@ -22,8 +29,6 @@ auto main(int argc,char *argv[]) -> int
         Poco::Data::SessionFactory::instance().create(
             Poco::Data::MySQL::Connector::KEY, connection_str));
 
-
-
     try
     {
         Poco::Data::Statement create_stmt(session);
@@ -32,42 +37,47 @@ auto main(int argc,char *argv[]) -> int
                     << "`last_name` VARCHAR(256) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,"
                     << "`email` VARCHAR(256) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,"
                     << "`title` VARCHAR(1024) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,"
-                    << "PRIMARY KEY (`id`),KEY `fn` (`first_name`),KEY `ln` (`last_name`));"; 
+                    << "PRIMARY KEY (`id`),KEY `fn` (`first_name`),KEY `ln` (`last_name`));";
         create_stmt.execute();
         std::cout << "table created" << std::endl;
 
-        Poco::Data::Statement insert(session);
+        Poco::Data::Statement truncate_stmt(session);
+        truncate_stmt << "TRUNCATE TABLE `Author`;";
+        truncate_stmt.execute();
 
-        std::string first_name{"Ivan"};
-        std::string last_name{"Ivanov"};
-        std::string email{"ivanov@ivan.ru"};
-        std::string title{"mister"};
+        // https://www.onlinedatagenerator.com/
+        std::string json;
+        std::ifstream is("../data.json");
+        std::istream_iterator<char> eos;
+        std::istream_iterator<char> iit(is);
+        while (iit != eos)
+            json.push_back(*(iit++));
+        is.close();
 
-        insert << "INSERT INTO Author (first_name,last_name,email,title) VALUES(?, ?, ?, ?)",
-            Poco::Data::Keywords::use(first_name),
-            Poco::Data::Keywords::use(last_name),
-            Poco::Data::Keywords::use(email),
-            Poco::Data::Keywords::use(title);
+        Poco::JSON::Parser parser;
+        Poco::Dynamic::Var result = parser.parse(json);
+        Poco::JSON::Array::Ptr arr = result.extract<Poco::JSON::Array::Ptr>();
 
-        insert.execute();
-
-        std::cout << "record inserted" << std::endl;
-
-        Poco::Data::Statement select(session);
-        long id;
-        select << "SELECT id, first_name, last_name, email, title FROM Author",
-            Poco::Data::Keywords::into(id),
-            Poco::Data::Keywords::into(first_name),
-            Poco::Data::Keywords::into(last_name),
-            Poco::Data::Keywords::into(email),
-            Poco::Data::Keywords::into(title),
-            Poco::Data::Keywords::range(0, 1); //  iterate over result set one row at a time
-
-        while (!select.done())
+        size_t i{0};
+        for (i = 0; i < arr->size(); ++i)
         {
-            select.execute();
-            std::cout << id << ":[" << first_name << "," << last_name << "," << email << "," << title << "]" << std::endl;
+            Poco::JSON::Object::Ptr object = arr->getObject(i);
+            std::string first_name = object->getValue<std::string>("first_name");
+            std::string last_name = object->getValue<std::string>("last_name");
+            std::string title = object->getValue<std::string>("title");
+            std::string email = object->getValue<std::string>("email");
+            Poco::Data::Statement insert(session);
+            insert << "INSERT INTO Author (first_name,last_name,email,title) VALUES(?, ?, ?, ?)",
+                Poco::Data::Keywords::use(first_name),
+                Poco::Data::Keywords::use(last_name),
+                Poco::Data::Keywords::use(email),
+                Poco::Data::Keywords::use(title);
+
+            insert.execute();
         }
+
+        std::cout << "Inserted " << i << " records" << std::endl; 
+       
     }
     catch (Poco::Data::MySQL::ConnectionException &e)
     {
