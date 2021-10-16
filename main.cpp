@@ -23,12 +23,13 @@ auto main(int argc, char *argv[]) -> int
     std::string connection_str;
     connection_str = "host=";
     connection_str += host;
-    connection_str += ";user=test;db=sql_test;password=pzjqUkMnc7vfNHET";
+    connection_str += ";user=stud;db=stud;password=stud";
 
+    std::cout << "connectiong to: " << connection_str << std::endl;
     Poco::Data::Session session(
         Poco::Data::SessionFactory::instance().create(
             Poco::Data::MySQL::Connector::KEY, connection_str));
-
+    std::cout << "session created" << std::endl;
     try
     {
         Poco::Data::Statement create_stmt(session);
