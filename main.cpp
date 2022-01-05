@@ -89,9 +89,9 @@ auto main(int argc, char *argv[]) -> int
 
         std::cout << "statement:" << e.what() << std::endl;
     }
-    catch (std::exception ex)
+    catch (std::exception* ex)
     {
-        std::cout << "exception:" << ex.what() << std::endl;
+        std::cout << "exception:" << ex->what() << std::endl;
     }
     return 1;
 }
