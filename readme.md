@@ -2,13 +2,7 @@
 
 Пример показывает загрузку данных в реляционную СУБД из сгенерированного JSON файла. Полученная СУБД может применяться для тестирования
 
-## JSON file format
-{ 
-"first_name":"Chuck",
-"last_name":"Dunbar",
-"email":"Chuck_Dunbar4812@atink.com",
-"title":"Physician"
-}
+
 
 ## Использование
 python3 -m venv ./env
