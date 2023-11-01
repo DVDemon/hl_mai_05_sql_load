@@ -1,4 +1,5 @@
-use archdb; 
+use archdb;
+create database my_database; 
 show tables;
 drop table User;
 CREATE TABLE IF NOT EXISTS User 
@@ -21,14 +22,14 @@ create index ln_fn using btree on User(last_name,first_name);
 
 explain select * from User where first_name like 'Elle%' and last_name like 'A%';
 
-explain select * from User where first_name like 'Car%';
+explain select * from User where last_name like 'Car%';
 -- insert into User (first_name,last_name,email,title) values ('Иван','Иванов','ivanov@yandex.ru','господин');
 -- SELECT LAST_INSERT_ID();
 -- select * from User where id=LAST_INSERT_ID();
 -- delete from User where id= 100001;
 show index from User;
 explain select * from User where first_name like 'Ca%' and last_name like 'V%';
---explain format=json select * from User where first_name='Elle%' and last_name='A%';
+explain format=json select * from User where first_name='Elle%' and last_name='A%';
 create index fn_ln on User(first_name);
 explain select * from User where first_name like 'Ca%' and last_name like 'V%';
 drop index fn_ln on User;
@@ -47,7 +48,7 @@ PARTITION sales_2020_q4 VALUES LESS THAN (UNIX_TIMESTAMP('2025-01-01'))
 );
 
 create index bd on sales(bill_date);
-ales (bill_no,bill_date,customer_id,amount) VALUES (1, CURRENT_TIMESTAMP(),1,10);
+insert into sales (bill_no,bill_date,customer_id,amount) VALUES (1, CURRENT_TIMESTAMP(),1,10);
 
 explain partitions select * from sales where bill_date = UNIX_TIMESTAMP('2020-04-01');
 explain partitions select * from sales where bill_date = CURRENT_TIMESTAMP();
