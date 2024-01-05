@@ -1,7 +1,8 @@
 repo_name: DVDemon/hl_mai_05_sql_load
 report_id: 43d0b09543628f96655fa5c8515895b6
+version: 0.1
 repo_type: Public
-timestamp: '2023-11-10T08:12:45+00:00'
+timestamp: '2024-01-05T08:57:55+00:00'
 requested_by: DVDemon
 provider: github
 branch: master
@@ -16,6 +17,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Languages
   image_url: https://img.stackshare.io/service/993/pUBY5pVj.png
+  detection_source_url: https://github.com/DVDemon/hl_mai_05_sql_load
   detection_source: Repo Metadata
 - name: SQL
   description: It is a domain-specific language used in programming
@@ -25,6 +27,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Languages
   image_url: https://img.stackshare.io/service/2271/default_068d33483bba6b81ee13fbd4dc7aab9780896a54.png
+  detection_source_url: https://github.com/DVDemon/hl_mai_05_sql_load/blob/master/commands.sql
   detection_source: commands.sql
   last_updated_by: Dmitriy Dzyuba
   last_updated_on: 2022-03-26 14:38:55.000000000 Z
@@ -38,6 +41,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Microframeworks (Backend)
   image_url: https://img.stackshare.io/service/25014/default_f6ff39141b468e832d1bc59fc98a060df604d44d.png
+  detection_source_url: https://github.com/DVDemon/hl_mai_05_sql_load/blob/master/requirements.txt
   detection_source: requirements.txt
   last_updated_by: Dmitriy Dzyuba
   last_updated_on: 2023-03-25 12:15:50.000000000 Z
@@ -50,7 +54,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Serialization Frameworks
   image_url: https://img.stackshare.io/service/4393/ma2jqJKH_400x400.png
-  detection_source_url: requirements.txt
+  detection_source_url: https://github.com/DVDemon/hl_mai_05_sql_load/blob/master/requirements.txt
   detection_source: requirements.txt
   last_updated_by: Dmitriy Dzyuba
   last_updated_on: 2023-03-25 12:15:50.000000000 Z
@@ -63,6 +67,7 @@ tools:
   category: Data Stores
   sub_category: Message Queue
   image_url: https://img.stackshare.io/service/1063/kazUJooF_400x400.jpg
+  detection_source_url: https://github.com/DVDemon/hl_mai_05_sql_load/blob/master/requirements.txt
   detection_source: requirements.txt
   last_updated_by: Dmitriy Dzyuba
   last_updated_on: 2023-03-25 12:15:50.000000000 Z
@@ -74,6 +79,7 @@ tools:
   category: Data Stores
   sub_category: Databases
   image_url: https://img.stackshare.io/service/1025/logo-mysql-170x170.png
+  detection_source_url: https://github.com/DVDemon/hl_mai_05_sql_load/blob/master/requirements.txt
   detection_source: requirements.txt
   last_updated_by: Dmitriy Dzyuba
   last_updated_on: 2023-03-25 12:15:50.000000000 Z
@@ -87,7 +93,7 @@ tools:
   category: Data Stores
   sub_category: Object Relational Mapper (ORM)
   image_url: https://img.stackshare.io/service/1839/q5uAkmy7.png
-  detection_source_url: requirements.txt
+  detection_source_url: https://github.com/DVDemon/hl_mai_05_sql_load/blob/master/requirements.txt
   detection_source: requirements.txt
   last_updated_by: Dmitriy Dzyuba
   last_updated_on: 2023-03-25 12:15:50.000000000 Z
@@ -100,6 +106,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Virtual Machine Platforms & Containers
   image_url: https://img.stackshare.io/service/586/n4u37v9t_400x400.png
+  detection_source_url: https://github.com/DVDemon/hl_mai_05_sql_load
   detection_source: Repo Metadata
 - name: Git
   description: Fast, scalable, distributed revision control system
@@ -109,6 +116,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Version Control System
   image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/DVDemon/hl_mai_05_sql_load
   detection_source: Repo Metadata
 - name: PyPI
   description: A repository of software for the Python programming language
@@ -118,6 +126,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Hosted Package Repository
   image_url: https://img.stackshare.io/service/12572/-RIWgodF_400x400.jpg
+  detection_source_url: https://github.com/DVDemon/hl_mai_05_sql_load/blob/master/requirements.txt
   detection_source: requirements.txt
   last_updated_by: Dmitriy Dzyuba
   last_updated_on: 2023-03-25 12:15:50.000000000 Z
@@ -131,7 +140,7 @@ tools:
   category: Application Hosting
   sub_category: Web Servers
   image_url: https://img.stackshare.io/service/12834/uvicorn.png
-  detection_source_url: requirements.txt
+  detection_source_url: https://github.com/DVDemon/hl_mai_05_sql_load/blob/master/requirements.txt
   detection_source: requirements.txt
   last_updated_by: Dmitriy Dzyuba
   last_updated_on: 2023-03-25 12:15:50.000000000 Z
@@ -145,7 +154,7 @@ tools:
   category: Libraries
   sub_category: Data Science Tools
   image_url: https://img.stackshare.io/service/2179/default_332f874a2edb2686f578aa6389313efcea1eec41.png
-  detection_source_url: requirements.txt
+  detection_source_url: https://github.com/DVDemon/hl_mai_05_sql_load/blob/master/requirements.txt
   detection_source: requirements.txt
   last_updated_by: Dmitriy Dzyuba
   last_updated_on: 2023-03-25 12:15:50.000000000 Z
@@ -156,13 +165,13 @@ tools:
   open_source: false
   hosted_saas: false
   image_url: https://img.stackshare.io/service/4220/LNPwoiWi_400x400.jpg
-  detection_source_url: requirements.txt
+  detection_source_url: https://github.com/DVDemon/hl_mai_05_sql_load/blob/master/requirements.txt
   detection_source: requirements.txt
   last_updated_by: Dmitriy Dzyuba
   last_updated_on: 2023-03-25 12:15:50.000000000 Z
 - name: pydantic
   description: Data validation and settings management using python 3.6 type hinting
-  package_url: https://pypi.org/pydantic
+  package_url: https://pypi.org/project/pydantic
   version: 1.10.2
   license: MIT
   open_source: true
@@ -170,13 +179,13 @@ tools:
   category: Libraries
   sub_category: PyPI Packages
   image_url: https://img.stackshare.io/package/20022/default_b0d1a54f127d7017fce41c15f5e85568fb7019ed.png
-  detection_source_url: requirements.txt
+  detection_source_url: https://github.com/DVDemon/hl_mai_05_sql_load/blob/master/requirements.txt
   detection_source: requirements.txt
   last_updated_by: Dmitriy Dzyuba
   last_updated_on: 2023-03-25 12:15:50.000000000 Z
 - name: python-dotenv
   description: Add .env support to your django/flask apps in development and deployments
-  package_url: https://pypi.org/python-dotenv
+  package_url: https://pypi.org/project/python-dotenv
   version: 0.21.0
   license: BSD-3-Clause
   open_source: true
@@ -184,7 +193,7 @@ tools:
   category: Libraries
   sub_category: PyPI Packages
   image_url: https://img.stackshare.io/package/20095/default_3141eabecdd8efa55de73a33c43f2ac0d5bbf954.png
-  detection_source_url: requirements.txt
+  detection_source_url: https://github.com/DVDemon/hl_mai_05_sql_load/blob/master/requirements.txt
   detection_source: requirements.txt
   last_updated_by: Dmitriy Dzyuba
   last_updated_on: 2023-03-25 12:15:50.000000000 Z
